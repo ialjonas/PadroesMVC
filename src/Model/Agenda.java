@@ -15,14 +15,10 @@ public class Agenda {
 		return true;
 	}
 
-	public Pessoa buscarPessoa(String nome) {
-		if (nome == null) {
-			throw new IllegalArgumentException();
-		} else {
-			for (int i = 0; i < pessoa.size(); i++) {
-				if (pessoa.get(i).equals(nome)) {
-					return pessoa.get(i);
-				}
+	public Pessoa buscarPessoaPorNome(String nome) {
+		for (int i = 0; i < pessoa.size(); i++) {
+			if (pessoa.get(i).getNome().equals(nome)) {
+				return pessoa.get(i);
 			}
 		}
 		return null;
