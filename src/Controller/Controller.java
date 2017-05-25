@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 
-public class App extends JFrame {
+public class Controller extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textNome;
@@ -32,7 +32,7 @@ public class App extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					App frame = new App();
+					Controller frame = new Controller();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class App extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public App() {
+	public Controller() {
 
 		Agenda ag = new Agenda();
 
