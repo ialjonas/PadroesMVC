@@ -8,5 +8,4 @@ public class Main {
 		Controller c = new Controller();
 		c.setVisible(true);
 	}
-
 }

@@ -63,6 +63,7 @@ public class Controller extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Pessoa p = new Pessoa(textNome.getText(), textNumero.getText());
+				ag.cadastrar(p);
 				textNome.setText("");
 				textNumero.setText("");
 			}
