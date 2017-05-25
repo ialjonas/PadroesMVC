@@ -4,31 +4,32 @@ import java.util.ArrayList;
 
 public class Agenda {
 
-	ArrayList<Pessoa> pessoa = new ArrayList<>();
+	private ArrayList<Pessoa> agenda;
+	private static Agenda instancAgenda = null;
 
 	public Agenda() {
-
+		agenda = new ArrayList<Pessoa>();
 	}
 
-	public boolean add(Pessoa p) {
-		pessoa.add(p);
-		return true;
+	public static Agenda getInstance() {
+		if (instancAgenda == null) {
+			instancAgenda = new Agenda();
+		}
+		return instancAgenda;
 	}
 
-	public Pessoa buscarPessoa(String nome) {
-		if (nome == null) {
-			throw new IllegalArgumentException();
-		} else {
-			for (int i = 0; i < pessoa.size(); i++) {
-				if (pessoa.get(i).equals(nome)) {
-					return pessoa.get(i);
-				}
+	public boolean cadastrar(Pessoa p) {
+		return agenda.add(p);
+	}
+
+	public String buscaTelefone(String nome) {
+		String telefone = "";
+
+		for (int i = 0; i < agenda.size(); i++) {
+			if (agenda.get(i).getNome().equals(nome)) {
+				telefone = agenda.get(i).getTelefone();
 			}
 		}
-		return null;
-	}
-
-	public String toString() {
-		return "";
+		return telefone;
 	}
 }
