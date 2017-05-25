@@ -25,25 +25,6 @@ public class Controller extends JFrame {
 	private JTextField textNome;
 	private JTextField textNumero;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Controller frame = new Controller();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public Controller() {
 
 		Agenda ag = new Agenda();
@@ -82,7 +63,6 @@ public class Controller extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Pessoa p = new Pessoa(textNome.getText(), textNumero.getText());
-				System.out.println(ag.cadastrar(p));
 				textNome.setText("");
 				textNumero.setText("");
 			}
