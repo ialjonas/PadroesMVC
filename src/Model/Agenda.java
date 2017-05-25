@@ -24,12 +24,19 @@ public class Agenda {
 
 	public String buscaTelefone(String nome) {
 		String telefone = "";
-
 		for (int i = 0; i < agenda.size(); i++) {
 			if (agenda.get(i).getNome().equals(nome)) {
 				telefone = agenda.get(i).getTelefone();
 			}
 		}
 		return telefone;
+	}
+	
+	public String toString() {
+		String saida = "";
+		for (int i = 0; i < agenda.size(); i++) {
+			saida = agenda.toString() + "\n";
+		}
+		return saida;
 	}
 }

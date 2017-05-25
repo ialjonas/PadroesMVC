@@ -36,7 +36,7 @@ public class Pessoa implements Comparable<Pessoa> {
 
 	@Override
 	public String toString() {
-		return "Nome: " + getNome() + "\nTelefone: " + getTelefone();
+		return "" + getNome() + "    " + getTelefone()+"\n";
 	}
 
 	@Override

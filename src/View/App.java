@@ -2,6 +2,7 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.TextArea;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -54,23 +55,13 @@ public class App extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnNewButton = new JButton("Cadastrar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Pessoa p = new Pessoa(textNome.getText(), textNumero.getText());
-				System.out.println(ag.cadastrar(p));
-			}
-		});
-		btnNewButton.setBounds(76, 61, 100, 23);
-		contentPane.add(btnNewButton);
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(13, 11, 46, 14);
+		contentPane.add(lblNome);
 
-		JButton btnNewButton_1 = new JButton("Buscar");
-		btnNewButton_1.setBounds(192, 61, 100, 23);
-		contentPane.add(btnNewButton_1);
-
-		JButton btnNewButton_2 = new JButton("Listar");
-		btnNewButton_2.setBounds(76, 102, 100, 23);
-		contentPane.add(btnNewButton_2);
+		JLabel lblTelefone = new JLabel("Telefone");
+		lblTelefone.setBounds(192, 11, 65, 14);
+		contentPane.add(lblTelefone);
 
 		textNome = new JTextField();
 		textNome.setBounds(13, 30, 170, 20);
@@ -87,13 +78,36 @@ public class App extends JFrame {
 		textListagem.setBounds(13, 136, 349, 216);
 		contentPane.add(textListagem);
 
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(13, 11, 46, 14);
-		contentPane.add(lblNome);
+		JButton btnNewButton = new JButton("Cadastrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Pessoa p = new Pessoa(textNome.getText(), textNumero.getText());
+				System.out.println(ag.cadastrar(p));
+				textNome.setText("");
+				textNumero.setText("");
+			}
+		});
+		btnNewButton.setBounds(76, 61, 100, 23);
+		contentPane.add(btnNewButton);
 
-		JLabel lblTelefone = new JLabel("Telefone");
-		lblTelefone.setBounds(192, 11, 65, 14);
-		contentPane.add(lblTelefone);
+		JButton btnNewButton_1 = new JButton("Buscar");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String n = textNome.getText();
+				textNumero.setText(ag.buscaTelefone(n));
+			}
+		});
+		btnNewButton_1.setBounds(192, 61, 100, 23);
+		contentPane.add(btnNewButton_1);
+
+		JButton btnNewButton_2 = new JButton("Listar");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textListagem.setText("Nome:       Telefone:\n" + ag.toString());
+			}
+		});
+		btnNewButton_2.setBounds(76, 102, 100, 23);
+		contentPane.add(btnNewButton_2);
 
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.addActionListener(new ActionListener() {
